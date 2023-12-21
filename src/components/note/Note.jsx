@@ -5,7 +5,7 @@ import { RiDeleteBin5Line } from "react-icons/ri"
 import { IoIosColorPalette } from "react-icons/io";
 import { TbLetterA } from "react-icons/tb";
 
-const Note = ({ title, text, index, editText, deleteFun }) => {
+const Note = ({ title, text, index, editText, deleteFun}) => {
 
   const editSpanRef = useRef(null);
   const deleteSpanRef = useRef(null);
@@ -17,14 +17,14 @@ const Note = ({ title, text, index, editText, deleteFun }) => {
         <div className='note-body'>{text}</div>
         <span className='edit-icon-wrapper icon-wrapper' index={index} ref={editSpanRef} onClick={() => editText(editSpanRef)}><MdOutlineEdit /></span>
         <span className='delete-icon-wrapper icon-wrapper' index={index} ref={deleteSpanRef} onClick={() => deleteFun(deleteSpanRef)}><RiDeleteBin5Line /></span>
-        <span className='color-picer-wrapper icon-wrapper' index={index}>
+        {/* <span className='color-picer-wrapper icon-wrapper' index={index}>
           <IoIosColorPalette />
           <input type="color" />
         </span>
         <span className='color-picer-wrapper icon-wrapper' index={index}>
           <TbLetterA />
           <input type="color" />
-        </span>
+        </span> */}
       </div>
     </>
   )

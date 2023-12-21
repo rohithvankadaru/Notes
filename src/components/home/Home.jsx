@@ -11,6 +11,17 @@ const Home = () => {
   const [list, setList] = useState(JSON.parse(localStorage.getItem('noteList')) || [[]]);
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
+  const [searchText, setSearchText] = useState('');
+  const [filteredList, setFilteredList] = useState(list);
+  useEffect(() => {
+    setFilteredList(list);
+  }, [list]);
+  useEffect(() => {
+    if (!(list.length == 1 && list[0].length == 0)) {
+      let arr = list.filter(ele => ele[0].includes(searchText));
+      setFilteredList(arr);
+    }
+  }, [searchText]);
 
   const [isEditTabOpen, setIsEditTabOpen] = useState(false);
 
@@ -78,7 +89,7 @@ const Home = () => {
     let tempArr = [...list];
 
     for (let i = 0; i < list.length; i++) {
-      if(list[i][2] == fileId){
+      if (list[i][2] == fileId) {
         tempArr.splice(i, 1);
         setList(tempArr.length == 0 ? [[]] : tempArr);
         localStorage.setItem('noteList', JSON.stringify(tempArr.length == 0 ? '' : tempArr));
@@ -90,14 +101,14 @@ const Home = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar searchText={searchText} setSearchText={setSearchText} />
       <hr />
       <div className='home'>
         <span style={{ cursor: 'pointer' }}><CiSquarePlus style={{ fontSize: '200px' }} onClick={showModal} /></span>
         {
           (list.length == 1 && list[0].length == 0) ||
           (
-            list.map((e) => (
+            filteredList.map((e) => (
               <Note title={e[0]} text={e[1]} index={e[2]} editText={editTextfun} deleteFun={deleteFun} />
             ))
           )
