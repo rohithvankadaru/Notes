@@ -1,4 +1,4 @@
 Run following commands to run locally
 
-npm install
-npm start
+1. npm install
+2. npm start
