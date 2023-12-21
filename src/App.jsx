@@ -12,8 +12,3 @@ function App() {
 }
 
 export default App
-
-
-// TODO 
-//  Delete: ask in pop up, does he sure to delete
-//  Update

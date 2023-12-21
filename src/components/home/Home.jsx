@@ -6,7 +6,6 @@ import './home.css'
 import NavBar from '../navbar/NavBar';
 import EditModal from '../editModal/EditModal';
 import { PiLightbulbThin } from "react-icons/pi";
-import { toast } from 'react-toastify';
 
 const Home = () => {
 
