@@ -18,7 +18,7 @@ const Home = () => {
   }, [list]);
   useEffect(() => {
     if (!(list.length == 1 && list[0].length == 0)) {
-      let arr = list.filter(ele => ele[0].includes(searchText));
+      let arr = list.filter(ele => ( (ele[0].toLocaleLowerCase()).includes(searchText.toLocaleLowerCase())) );
       setFilteredList(arr);
     }
   }, [searchText]);
