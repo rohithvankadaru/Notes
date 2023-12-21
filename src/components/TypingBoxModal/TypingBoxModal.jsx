@@ -11,7 +11,7 @@ const TypingBoxModal = ({ text, setText, title, setTitle, isModalOpen, setIsModa
         <br />
         <TextArea
           placeholder='Enter a note'
-          style={{ height: '300px', minWidth: '400px' }}
+          style={{ height: '300px', Width: '400px' }}
           value={text}
           onChange={(e) => setText(e.target.value)} />
       </Modal>
