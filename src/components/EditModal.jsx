@@ -7,7 +7,7 @@ const EditModal = ({isEditTabOpen, saveEdit, text, setText}) => {
         <Modal open={isEditTabOpen} onOk={saveEdit} onCancel={saveEdit}>
             <TextArea
                 value= {text}
-                style={{ height: '300px', minWidth: '400px' }}
+                style={{ height: '300px', Width: '400px' }}
                 onChange={(e) => setText(e.target.value)} />
         </Modal>
     )
