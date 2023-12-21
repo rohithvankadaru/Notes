@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CiSquarePlus } from "react-icons/ci";
 import TypingBoxModal from '../TypingBoxModal/TypingBoxModal';
 import Note from '../note/Note';
 import './home.css'
 import NavBar from '../navbar/NavBar';
-import EditModal from '../EditModal';
+import EditModal from '../editModal/EditModal';
+import { PiLightbulbThin } from "react-icons/pi";
 
 const Home = () => {
 
@@ -13,8 +14,13 @@ const Home = () => {
   const [title, setTitle] = useState('');
   const [searchText, setSearchText] = useState('');
   const [filteredList, setFilteredList] = useState(list);
+
+  const bulbIconRef = useRef(null);
+
   useEffect(() => {
     setFilteredList(list);
+    if(list[0].length > 0) bulbIconRef.current.style.display = 'none'
+    else bulbIconRef.current.style.display = 'block'
   }, [list]);
   useEffect(() => {
     if (!(list.length == 1 && list[0].length == 0)) {
@@ -105,6 +111,7 @@ const Home = () => {
       <hr />
       <div className='home'>
         <span style={{ cursor: 'pointer' }}><CiSquarePlus className='plus-icon' style={{ fontSize: '200px' }} onClick={showModal} /></span>
+        <span className='bulb-icon-wrapper' ref={bulbIconRef}><PiLightbulbThin className='bulb-icon' /></span>
         {
           (list.length == 1 && list[0].length == 0) ||
           (
