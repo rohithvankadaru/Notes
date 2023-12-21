@@ -1,13 +1,17 @@
 import './App.css'
-import AddNote from './components/addNote/AddNote'
+import './util.css'
+import Home from './components/home/Home'
 
 function App() {
 
   return (
-    <>
-       <AddNote />
-    </>
+    <Home />
   )
 }
 
 export default App
+
+
+// TODO 
+//  Delete: ask in pop up, does he sure to delete
+//  Update

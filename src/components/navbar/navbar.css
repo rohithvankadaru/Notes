@@ -1,0 +1,35 @@
+.nav-bar {
+    margin-inline: 30px;
+    padding-block: 20px;
+}
+
+.nav-bar>.icon {
+    gap: 10px;
+}
+
+.search {
+    margin-inline: auto;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px grey;
+}
+
+.nav-bar .searchIcon {
+    font-size: 1.5rem;
+    padding-left: 15px;
+    padding-block: 13px;
+    border-radius: 8px 0 0 8px;
+}
+
+.nav-bar input {
+    border: none;
+    outline: none;
+
+    width: 650px;
+    height: 20px;
+    
+    padding: 15px 25px;
+    border-radius: 0 8px 8px 0;
+    color: rgb(106, 103, 103);
+    font-size: 1rem;
+}

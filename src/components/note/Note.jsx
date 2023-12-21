@@ -1,11 +1,33 @@
-import React from 'react'
+import React, { useRef } from 'react'
+import './note.css'
+import { MdOutlineEdit } from "react-icons/md"
+import { RiDeleteBin5Line } from "react-icons/ri"
+import { IoIosColorPalette } from "react-icons/io";
+import { TbLetterA } from "react-icons/tb";
 
-const Note = ({text}) => {
+const Note = ({ title, text, index, editText, deleteFun }) => {
+
+  const editSpanRef = useRef(null);
+  const deleteSpanRef = useRef(null);
 
   return (
-    // <div style={{display: 'inline-block', border: '2px solid', width: '250px', height: '150px', marginTop: '0', paddingTop: '0'}}></div>
-    <div style={{width: '100px', height: '100px', border: '1px solid' }}>{text}</div>
+    <>
+      <div className='note'>
+        <h3>{title}</h3>
+        <div className='note-body'>{text}</div>
+        <span className='edit-icon-wrapper icon-wrapper' index={index} ref={editSpanRef} onClick={() => editText(editSpanRef)}><MdOutlineEdit /></span>
+        <span className='delete-icon-wrapper icon-wrapper' index={index} ref={deleteSpanRef} onClick={() => deleteFun(deleteSpanRef)}><RiDeleteBin5Line /></span>
+        <span className='color-picer-wrapper icon-wrapper' index={index}>
+          <IoIosColorPalette />
+          <input type="color" />
+        </span>
+        <span className='color-picer-wrapper icon-wrapper' index={index}>
+          <TbLetterA />
+          <input type="color" />
+        </span>
+      </div>
+    </>
   )
 }
 
-export default Note
+export default Note;
