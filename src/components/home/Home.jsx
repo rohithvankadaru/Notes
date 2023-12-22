@@ -16,11 +16,7 @@ const Home = () => {
   const [title, setTitle] = useState('');
   const [searchText, setSearchText] = useState('');
   const [filteredList, setFilteredList] = useState(list);
-  let firstNoteColor;
-  list.map((ele, i) => {
-    if (ele[2] == 0) firstNoteColor = ele[3];
-  })
-  const [noteIdBg, setNoteIdBg] = useState([0, (firstNoteColor || 'transparent')]);
+
 
   const bulbIconRef = useRef(null);
 
@@ -35,27 +31,6 @@ const Home = () => {
       setFilteredList(arr);
     }
   }, [searchText]);
-
-
-  useEffect(() => {
-    if (!(list.length == 1 && list[0].length == 0)) {
-      const tempArr = JSON.parse(localStorage.getItem('noteList'))
-      let listIndex;
-      for (let i = 0; i < list.length; i++) {
-        if (list[i][2] == noteIdBg[0]) {
-          listIndex = i;
-          break;
-        }
-      }
-      if (listIndex) {
-        const currNote = tempArr[listIndex];
-        currNote[3] = noteIdBg[1];
-        tempArr[listIndex] = currNote;
-        localStorage.setItem('noteList', JSON.stringify(tempArr))
-        setList(tempArr);
-      }
-    }
-  }, [noteIdBg]);
 
   const [isEditTabOpen, setIsEditTabOpen] = useState(false);
 
@@ -118,6 +93,22 @@ const Home = () => {
     localStorage.setItem('noteList', JSON.stringify(tempArr));
   }
 
+  function editColor(noteId, bgColor) {
+    const tempArr = JSON.parse(localStorage.getItem('noteList'))
+    let listIndex;
+    for (let i = 0; i < list.length; i++) {
+      if (list[i][2] == noteId) {
+        listIndex = i;
+        break;
+      }
+    }
+    const currNote = tempArr[listIndex];
+    currNote[3] = bgColor;
+    tempArr[listIndex] = currNote;
+    localStorage.setItem('noteList', JSON.stringify(tempArr))
+    setList(tempArr);
+  };
+
   function deleteFun(deleteSpanRef) {
     let fileId = deleteSpanRef.current.getAttribute('index');
     let tempArr = [...list];
@@ -148,9 +139,9 @@ const Home = () => {
                 text={e[1]}
                 index={e[2]}
                 editText={editTextfun}
-                deleteFun={deleteFun}
-                setNoteIdBg={setNoteIdBg}
-                bgColor={e[3]} />
+                deleteFun={deleteFun}                
+                bgColor={e[3]}
+                editColor={editColor}/>
             ))
           )
         }

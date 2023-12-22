@@ -5,7 +5,7 @@ import { RiDeleteBin5Line } from "react-icons/ri"
 import { Modal } from 'antd';
 import ColorPallet from '../ColorPallet';
 
-const Note = ({ title, text, index, editText, deleteFun, setNoteIdBg, bgColor }) => {
+const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor }) => {
 
   const editSpanRef = useRef(null);
   const deleteSpanRef = useRef(null);
@@ -25,7 +25,7 @@ const Note = ({ title, text, index, editText, deleteFun, setNoteIdBg, bgColor })
   }
 
   function noteColor(tagRef) {
-    setNoteIdBg([tagRef.current.getAttribute('index'), tagRef.current.getAttribute('noteBg')])
+    editColor(tagRef.current.getAttribute('index'), tagRef.current.getAttribute('noteBg'));
   }
 
   return (
