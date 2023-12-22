@@ -98,6 +98,7 @@ const Home = () => {
     let tempArr = [...list];
     tempArr[arrayIndex] = [title, text, list[arrayIndex][2], list[arrayIndex][3]];
     setText('');
+    setTitle('');
     setList(tempArr);
     setIsEditTabOpen(false);
     localStorage.setItem('noteList', JSON.stringify(tempArr));
