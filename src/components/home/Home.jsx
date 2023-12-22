@@ -14,6 +14,7 @@ const Home = () => {
   const [title, setTitle] = useState('');
   const [searchText, setSearchText] = useState('');
   const [filteredList, setFilteredList] = useState(list);
+  const [noteIdBg, setNoteIdBg] = useState([0, 'transparent']);
 
   const bulbIconRef = useRef(null);
 
@@ -28,6 +29,16 @@ const Home = () => {
       setFilteredList(arr);
     }
   }, [searchText]);
+  useEffect(() => {
+    if (!(list.length == 1 && list[0].length == 0)) {
+      const tempArr = JSON.parse(localStorage.getItem('noteList'))
+      const currNote = tempArr[noteIdBg[0]];
+      currNote[3] = noteIdBg[1];
+      tempArr[noteIdBg[0]] = currNote;
+      localStorage.setItem('noteList', JSON.stringify(tempArr))
+      setList(tempArr);
+    }
+  }, [noteIdBg])
 
   const [isEditTabOpen, setIsEditTabOpen] = useState(false);
 
@@ -55,7 +66,7 @@ const Home = () => {
     }
 
     const tempList = JSON.parse(localStorage.getItem('noteList')) || [];
-    tempList.push([title, text, sequenceNumber]);
+    tempList.push([title, text, sequenceNumber, 'transparent']);
     setSequenceNumber(sequenceNumber + 1);
     localStorage.setItem('noteList', JSON.stringify(tempList));
     setText('');
@@ -83,7 +94,7 @@ const Home = () => {
 
   function saveEdit() {
     let tempArr = [...list];
-    tempArr[arrayIndex] = [list[arrayIndex][0], text, list[arrayIndex][2]];
+    tempArr[arrayIndex] = [list[arrayIndex][0], text, list[arrayIndex][2], list[arrayIndex][3]];
     setText('');
     setList(tempArr);
     setIsEditTabOpen(false);
@@ -116,7 +127,13 @@ const Home = () => {
           (list.length == 1 && list[0].length == 0) ||
           (
             filteredList.map((e) => (
-              <Note title={e[0]} text={e[1]} index={e[2]} editText={editTextfun} deleteFun={deleteFun} />
+              <Note title={e[0]}
+                text={e[1]}
+                index={e[2]}
+                editText={editTextfun}
+                deleteFun={deleteFun}
+                setNoteIdBg={setNoteIdBg}
+                bgColor={e[3]} />
             ))
           )
         }

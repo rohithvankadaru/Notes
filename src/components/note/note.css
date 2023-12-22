@@ -36,3 +36,7 @@
 .icon-wrapper :active {
     scale: 1.2;
 }
+
+.color-icon-wrapper :hover {
+    scale: 1;
+}

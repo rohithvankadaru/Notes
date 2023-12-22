@@ -1,0 +1,29 @@
+.color-icon {
+    scale: 1.2;
+}
+
+.colors-box {
+    display: none;
+    position: relative;
+    top: 20px;
+    box-shadow: 0 0 5px gray;
+    border-radius: 5px;
+    padding: 3px 7px;
+    gap: 8px;
+}
+
+.color-pallet:hover .colors-box {
+    display: flex;
+}
+
+.color-pallet:active .colors-box {
+    display: flex;
+}
+
+.color-pallet {
+    position: relative;
+}
+
+.color-pallet:hover {
+    bottom: -25px;
+}
