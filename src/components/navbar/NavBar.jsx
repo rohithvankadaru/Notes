@@ -14,7 +14,7 @@ const NavBar = ({searchText, setSearchText, allClearFn}) => {
                 <CiSearch className='searchIcon' />
                 <input placeholder='search with title...' value={searchText} onChange={e => setSearchText(e.target.value)} />
             </div>
-            <button onClick={allClearFn} style={{backgroundColor: 'white', boxShadow: '0 0 3px', outline: 'none'}}>Clear All</button>
+            <button onClick={allClearFn} className='clear-btn' style={{backgroundColor: 'white', boxShadow: '0 0 3px', outline: 'none'}}>Clear All</button>
         </div>
     )
 }
