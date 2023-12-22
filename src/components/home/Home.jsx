@@ -10,7 +10,7 @@ import { Modal } from 'antd';
 import { BsExclamationSquareFill } from 'react-icons/bs';
 
 let localList = JSON.parse(localStorage.getItem('noteList')) || [[]];
-let lastNoteIdx = localList[localList.length - 1][2];
+let lastNoteId = localList[localList.length - 1][2];
 const Home = () => {
 
   const [list, setList] = useState(JSON.parse(localStorage.getItem('noteList')) || [[]]);
@@ -24,7 +24,7 @@ const Home = () => {
   const bulbIconRef = useRef(null);
 
   useEffect(() => {
-    setFilteredList(list);
+    setFilteredList([...list].reverse());
     if (list[0].length > 0) bulbIconRef.current.style.display = 'none'
     else bulbIconRef.current.style.display = 'block'
   }, [list]);
@@ -37,7 +37,7 @@ const Home = () => {
           (ele[1].toLocaleLowerCase()).includes(searchText.toLocaleLowerCase())
         )
       });
-      setFilteredList(arr);
+      setFilteredList(arr.reverse());
     }
   }, [searchText]);
 
@@ -45,7 +45,7 @@ const Home = () => {
 
 
 
-  const [sequenceNumber, setSequenceNumber] = useState(lastNoteIdx ? lastNoteIdx + 1 : 0);
+  const [sequenceNumber, setSequenceNumber] = useState(lastNoteId ? lastNoteId + 1 : 0);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   function showModal() {
@@ -136,7 +136,7 @@ const Home = () => {
     setIsDeleteAllModalOpen(true);
   }
 
-  function deleteAllFn() {
+  function deleteAllFn() { //executes for clicking 'OK' on delete all modal
     localStorage.clear();
     setList([[]]);
     setIsDeleteAllModalOpen(false);
