@@ -29,12 +29,48 @@ const Home = () => {
       setFilteredList(arr);
     }
   }, [searchText]);
+
+
+  ////////////////////////////////////////////////////////////////////
+  function editTextfun(tagRef, textRef) {
+    setIsEditTabOpen(true);
+    let fileId = tagRef.current.getAttribute('index');
+    let listIndex;
+
+    for (let i = 0; i < list.length; i++) {
+      if (list[i][2] == fileId) {
+        listIndex = i;
+        setArrayIndex(i);
+        break;
+      }
+    }
+
+    setText(list[listIndex][1]);
+  }
+
+  function saveEdit() {
+    let tempArr = [...list];
+    tempArr[arrayIndex] = [list[arrayIndex][0], text, list[arrayIndex][2], list[arrayIndex][3]];
+    setText('');
+    setList(tempArr);
+    setIsEditTabOpen(false);
+    localStorage.setItem('noteList', JSON.stringify(tempArr));
+  }
+
+  
   useEffect(() => {
     if (!(list.length == 1 && list[0].length == 0)) {
       const tempArr = JSON.parse(localStorage.getItem('noteList'))
-      const currNote = tempArr[noteIdBg[0]];
+      let listIndex;
+      for (let i = 0; i < list.length; i++) {
+        if (list[i][2] == noteIdBg[0]) {
+          listIndex = i;
+          break;
+        }
+      }
+      const currNote = tempArr[listIndex];
       currNote[3] = noteIdBg[1];
-      tempArr[noteIdBg[0]] = currNote;
+      tempArr[listIndex] = currNote;
       localStorage.setItem('noteList', JSON.stringify(tempArr))
       setList(tempArr);
     }
