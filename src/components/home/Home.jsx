@@ -7,6 +7,8 @@ import NavBar from '../navbar/NavBar';
 import EditModal from '../editModal/EditModal';
 import { PiLightbulbThin } from "react-icons/pi";
 
+let localList = JSON.parse('noteList')
+let lastNoteIdx = localList[localList.length - 1][2];
 const Home = () => {
 
   const [list, setList] = useState(JSON.parse(localStorage.getItem('noteList')) || [[]]);
@@ -14,7 +16,11 @@ const Home = () => {
   const [title, setTitle] = useState('');
   const [searchText, setSearchText] = useState('');
   const [filteredList, setFilteredList] = useState(list);
-  const [noteIdBg, setNoteIdBg] = useState([0, 'transparent']);
+  let firstNoteColor;
+  list.map((ele, i) => {
+    if(ele[2] == 0) firstNoteColor = ele[3];
+  })
+  const [noteIdBg, setNoteIdBg] = useState([0, (firstNoteColor || 'transparent')]);
 
   const bulbIconRef = useRef(null);
 
@@ -29,33 +35,6 @@ const Home = () => {
       setFilteredList(arr);
     }
   }, [searchText]);
-
-
-  ////////////////////////////////////////////////////////////////////
-  function editTextfun(tagRef, textRef) {
-    setIsEditTabOpen(true);
-    let fileId = tagRef.current.getAttribute('index');
-    let listIndex;
-
-    for (let i = 0; i < list.length; i++) {
-      if (list[i][2] == fileId) {
-        listIndex = i;
-        setArrayIndex(i);
-        break;
-      }
-    }
-
-    setText(list[listIndex][1]);
-  }
-
-  function saveEdit() {
-    let tempArr = [...list];
-    tempArr[arrayIndex] = [list[arrayIndex][0], text, list[arrayIndex][2], list[arrayIndex][3]];
-    setText('');
-    setList(tempArr);
-    setIsEditTabOpen(false);
-    localStorage.setItem('noteList', JSON.stringify(tempArr));
-  }
 
   
   useEffect(() => {
@@ -74,11 +53,11 @@ const Home = () => {
       localStorage.setItem('noteList', JSON.stringify(tempArr))
       setList(tempArr);
     }
-  }, [noteIdBg])
+  }, [noteIdBg]);
 
   const [isEditTabOpen, setIsEditTabOpen] = useState(false);
 
-  let lastNoteIdx = list[list.length - 1][2];
+  
 
   const [sequenceNumber, setSequenceNumber] = useState(lastNoteIdx ? lastNoteIdx + 1 : 0);
 
