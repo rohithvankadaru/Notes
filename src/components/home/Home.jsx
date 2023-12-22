@@ -7,7 +7,7 @@ import NavBar from '../navbar/NavBar';
 import EditModal from '../editModal/EditModal';
 import { PiLightbulbThin } from "react-icons/pi";
 
-let localList = JSON.parse('noteList')
+let localList = JSON.parse(localStorage.getItem('noteList')) || [[]];
 let lastNoteIdx = localList[localList.length - 1][2];
 const Home = () => {
 
@@ -18,7 +18,7 @@ const Home = () => {
   const [filteredList, setFilteredList] = useState(list);
   let firstNoteColor;
   list.map((ele, i) => {
-    if(ele[2] == 0) firstNoteColor = ele[3];
+    if (ele[2] == 0) firstNoteColor = ele[3];
   })
   const [noteIdBg, setNoteIdBg] = useState([0, (firstNoteColor || 'transparent')]);
 
@@ -36,7 +36,7 @@ const Home = () => {
     }
   }, [searchText]);
 
-  
+
   useEffect(() => {
     if (!(list.length == 1 && list[0].length == 0)) {
       const tempArr = JSON.parse(localStorage.getItem('noteList'))
@@ -47,17 +47,19 @@ const Home = () => {
           break;
         }
       }
-      const currNote = tempArr[listIndex];
-      currNote[3] = noteIdBg[1];
-      tempArr[listIndex] = currNote;
-      localStorage.setItem('noteList', JSON.stringify(tempArr))
-      setList(tempArr);
+      if (listIndex) {
+        const currNote = tempArr[listIndex];
+        currNote[3] = noteIdBg[1];
+        tempArr[listIndex] = currNote;
+        localStorage.setItem('noteList', JSON.stringify(tempArr))
+        setList(tempArr);
+      }
     }
   }, [noteIdBg]);
 
   const [isEditTabOpen, setIsEditTabOpen] = useState(false);
 
-  
+
 
   const [sequenceNumber, setSequenceNumber] = useState(lastNoteIdx ? lastNoteIdx + 1 : 0);
 
