@@ -126,7 +126,13 @@ const Home = () => {
 
   return (
     <>
-      <NavBar searchText={searchText} setSearchText={setSearchText} />
+      <NavBar
+        searchText={searchText}
+        setSearchText={setSearchText}
+        allClearFn={() => {
+          localStorage.clear();
+          setList([[]]);
+        }} />
       <hr />
       <div className='home'>
         <span style={{ cursor: 'pointer' }}><CiSquarePlus className='plus-icon' style={{ fontSize: '200px' }} onClick={showModal} /></span>
@@ -139,9 +145,9 @@ const Home = () => {
                 text={e[1]}
                 index={e[2]}
                 editText={editTextfun}
-                deleteFun={deleteFun}                
+                deleteFun={deleteFun}
                 bgColor={e[3]}
-                editColor={editColor}/>
+                editColor={editColor} />
             ))
           )
         }
