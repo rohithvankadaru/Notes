@@ -27,3 +27,9 @@
 .color-pallet:hover {
     bottom: -25px;
 }
+
+@media screen and (max-width: 400px) and (max-height: 1200px) {
+    .color-pallet-icon {
+        display: none;
+    }
+}

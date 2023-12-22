@@ -8,7 +8,6 @@ const ColorPallet = ({ noteColor, index }) => {
 
     const spanRefs = items.map(() => useRef(null));
     const noColorIconRef = useRef(null);
-    // console.log(items[0].label.props.fill)
 
     return (
         <div className='color-pallet'>
