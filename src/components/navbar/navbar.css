@@ -40,18 +40,20 @@
     }
     .nav-bar>.icon>img {
         position: relative;
-        left: -20px;
+        left: -25px;
     }
 
     .nav-bar input {
-        position: relative;
-        left: -5px;
         max-width: 157px;
+    }
+    .nav-bar .search {
+        position: relative;
+        left: -12px;
     }
     .clear-btn {
         position: relative;
         left: -8px;
         margin-left: 15px;
-        max-width: 80px;
+        max-width: 90px !important;
     }
 }
