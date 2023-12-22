@@ -6,9 +6,7 @@ const TypingBoxModal = ({ text, setText, title, setTitle, isModalOpen, handleOk,
 
   return (
     <Modal title="Add Note" open={isModalOpen} onCancel={handleCancel} footer={<Button type='primary' onClick={handleOk}>OK</Button>}>
-      <Input placeholder='Title' value={title} onChange={e => setTitle(e.target.value)} />
-      <br />
-      <br />
+      <Input placeholder='Title' value={title} onChange={e => setTitle(e.target.value)} /><br /><br />
       <TextArea
         placeholder='Enter a note'
         style={{ height: '300px', Width: '400px' }}

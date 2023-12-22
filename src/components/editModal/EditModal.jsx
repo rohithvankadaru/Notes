@@ -1,12 +1,18 @@
-import { Modal } from 'antd'
+import { Button, Input, Modal } from 'antd'
 import TextArea from 'antd/es/input/TextArea'
 import React from 'react'
 
-const EditModal = ({isEditTabOpen, saveEdit, text, setText}) => {
+const EditModal = ({ isEditTabOpen, saveEdit, text, setText, title, setTitle }) => {
     return (
-        <Modal open={isEditTabOpen} onOk={saveEdit} onCancel={saveEdit}>
+        <Modal title='Edit Note' open={isEditTabOpen} onCancel={saveEdit} footer={<Button type='primary' onClick={saveEdit}>OK</Button>}>
+            <Input
+             placeholder='Title'
+             value={title}
+             onChange={e => setTitle(e.target.value)}
+            ></Input><br /><br />
             <TextArea
-                value= {text}
+                placeholder='note content'
+                value={text}
                 style={{ height: '300px', Width: '400px' }}
                 onChange={(e) => setText(e.target.value)} />
         </Modal>
