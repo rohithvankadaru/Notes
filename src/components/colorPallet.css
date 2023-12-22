@@ -3,7 +3,8 @@
 }
 
 .colors-box {
-    display: none;
+    opacity: 0;
+    display: flex;
     position: relative;
     top: 20px;
     box-shadow: 0 0 5px gray;
@@ -12,24 +13,23 @@
     gap: 8px;
 }
 
+.color-pallet {
+    position: relative;
+    top: 25px;
+}
+
+.color-pallet:hover .color-pallet-icon {
+    scale: 1.1;
+}
+
+.color-pallet:active .color-pallet-icon {
+    scale: 1.1;
+}
+
 .color-pallet:hover .colors-box {
-    display: flex;
+    opacity: 100;
 }
 
 .color-pallet:active .colors-box {
-    display: flex;
-}
-
-.color-pallet {
-    position: relative;
-}
-
-.color-pallet:hover {
-    bottom: -25px;
-}
-
-@media screen and (max-width: 400px) and (max-height: 1200px) {
-    .color-pallet-icon {
-        display: none;
-    }
+    opacity: 100;
 }
