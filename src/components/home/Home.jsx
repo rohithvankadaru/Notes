@@ -91,11 +91,12 @@ const Home = () => {
     }
 
     setText(list[listIndex][1]);
+    setTitle(list[listIndex][0])
   }
 
   function saveEdit() {
     let tempArr = [...list];
-    tempArr[arrayIndex] = [list[arrayIndex][0], text, list[arrayIndex][2], list[arrayIndex][3]];
+    tempArr[arrayIndex] = [title, text, list[arrayIndex][2], list[arrayIndex][3]];
     setText('');
     setList(tempArr);
     setIsEditTabOpen(false);
@@ -182,7 +183,7 @@ const Home = () => {
           handleOk={handleOk}
           handleCancel={handleCancel}
         />
-        <EditModal isEditTabOpen={isEditTabOpen} saveEdit={saveEdit} setText={setText} text={text} />
+        <EditModal isEditTabOpen={isEditTabOpen} saveEdit={saveEdit} setText={setText} text={text} title={title} setTitle={setTitle} />
 
         <Modal open={isDeleteAllModalOpen} onOk={deleteAllFn} onCancel={() => setIsDeleteAllModalOpen(false)} okType='danger'>
           <label style={{ fontSize: '1.1rem', fontWeight: '600' }}><BsExclamationSquareFill className='exclamation-icon' />This will delete all Notes</label>
