@@ -21,5 +21,6 @@
     }
     .bulb-icon {
         left: 17vw;
+        scale: 8;
     }
 }

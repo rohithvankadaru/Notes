@@ -35,14 +35,22 @@
 }
 
 @media screen and (max-width: 400px) and (max-height: 1200px) {
-    .nav-bar>.icon {
+    .nav-bar>.icon>h1 {
         display: none;
+    }
+    .nav-bar>.icon>img {
+        position: relative;
+        left: -20px;
     }
 
     .nav-bar input {
-        max-width: 170px;
+        position: relative;
+        left: -5px;
+        max-width: 157px;
     }
     .clear-btn {
+        position: relative;
+        left: -8px;
         margin-left: 15px;
         max-width: 80px;
     }
