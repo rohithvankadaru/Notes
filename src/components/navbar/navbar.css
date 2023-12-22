@@ -7,7 +7,7 @@
     gap: 10px;
 }
 
-.search {
+.search-wrapper {
     margin-inline: auto;
     align-items: center;
     justify-content: center;
@@ -21,7 +21,7 @@
     border-radius: 8px 0 0 8px;
 }
 
-.nav-bar input {
+.search-wrapper input {
     border: none;
     outline: none;
 
@@ -46,9 +46,12 @@
     .nav-bar input {
         max-width: 157px;
     }
-    .nav-bar .search {
+    .nav-bar .search-wrapper {
         position: relative;
         left: -12px;
+    }
+    .search-wrapper input {
+        padding: 6px 13px;
     }
     .clear-btn {
         position: relative;

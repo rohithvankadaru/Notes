@@ -6,12 +6,24 @@
     margin: 20px;
 }
 
-.bulb-icon {
+.bulb-icon-wrapper {
     position: relative;
     left: 30vw;
     top: 20vh;
+}
+
+.hero-text {
+    position: absolute;
+    top: 125px;
+    left: -87px;
+    width: 190px;
+    color: gray;
+    font-size: 1.1rem;
+}
+
+.bulb-icon {
     scale: 14;
-    fill: darkgray;
+    fill: #a9a9a9;
 }
 
 

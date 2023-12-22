@@ -2,7 +2,7 @@ import React from 'react'
 import './navbar.css'
 import { CiSearch } from 'react-icons/ci'
 
-const NavBar = ({searchText, setSearchText, allClearFn}) => {
+const NavBar = ({ searchText, setSearchText, allClearFn }) => {
     return (
         <div className='d-flex flex-row nav-bar' >
             <div className='d-flex icon'>
@@ -10,11 +10,11 @@ const NavBar = ({searchText, setSearchText, allClearFn}) => {
                     alt="" aria-hidden="true" role="presentation" style={{ width: '40px', height: '40px' }}></img>
                 <h1>Keep</h1>
             </div>
-            <div className='d-flex search'>
+            <div className='d-flex search-wrapper'>
                 <CiSearch className='searchIcon' />
-                <input placeholder='search with title...' value={searchText} onChange={e => setSearchText(e.target.value)} />
+                <input placeholder='search...' value={searchText} onChange={e => setSearchText(e.target.value)} />
             </div>
-            <button onClick={allClearFn} className='clear-btn' style={{backgroundColor: 'white', boxShadow: '0 0 3px', outline: 'none'}}>Clear All</button>
+            <button onClick={allClearFn} className='clear-btn' style={{ backgroundColor: 'white', boxShadow: '0 0 3px', outline: 'none' }}>Clear All</button>
         </div>
     )
 }
