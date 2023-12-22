@@ -6,6 +6,8 @@ import './home.css'
 import NavBar from '../navbar/NavBar';
 import EditModal from '../editModal/EditModal';
 import { PiLightbulbThin } from "react-icons/pi";
+import { Modal } from 'antd';
+import { BsExclamationSquareFill } from 'react-icons/bs';
 
 let localList = JSON.parse(localStorage.getItem('noteList')) || [[]];
 let lastNoteIdx = localList[localList.length - 1][2];
@@ -16,6 +18,7 @@ const Home = () => {
   const [title, setTitle] = useState('');
   const [searchText, setSearchText] = useState('');
   const [filteredList, setFilteredList] = useState(list);
+  const [isDeleteAllModalOpen, setIsDeleteAllModalOpen] = useState(false)
 
 
   const bulbIconRef = useRef(null);
@@ -129,23 +132,30 @@ const Home = () => {
     }
   }
 
+  function deteleAllNotes() {
+    setIsDeleteAllModalOpen(true);
+  }
+
+  function deleteAllFn() {
+    localStorage.clear();
+    setList([[]]);
+    setIsDeleteAllModalOpen(false);
+  }
+
 
   return (
     <>
       <NavBar
         searchText={searchText}
         setSearchText={setSearchText}
-        allClearFn={() => {
-          localStorage.clear();
-          setList([[]]);
-        }} />
+        deteleAllNotes={deteleAllNotes} />
       <hr />
       <div className='home'>
         <span style={{ cursor: 'pointer' }}><CiSquarePlus className='plus-icon' style={{ fontSize: '200px' }} onClick={showModal} /></span>
         <span className='bulb-icon-wrapper' ref={bulbIconRef}>
           <PiLightbulbThin className='bulb-icon' />
-         <div className='hero-text'> 😊Make your first Note !!</div>
-          </span>
+          <div className='hero-text'> 😊Make your first Note !!</div>
+        </span>
         {
           (list.length == 1 && list[0].length == 0) ||
           (
@@ -173,6 +183,10 @@ const Home = () => {
           handleCancel={handleCancel}
         />
         <EditModal isEditTabOpen={isEditTabOpen} saveEdit={saveEdit} setText={setText} text={text} />
+
+        <Modal open={isDeleteAllModalOpen} onOk={deleteAllFn} onCancel={() => setIsDeleteAllModalOpen(false)} okType='danger'>
+          <label style={{ fontSize: '1.1rem', fontWeight: '600' }}><BsExclamationSquareFill className='exclamation-icon' />This will delete all Notes</label>
+        </Modal>
       </div>
     </>
   )
