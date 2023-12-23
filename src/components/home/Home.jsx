@@ -52,7 +52,7 @@ const Home = () => {
 
 
 
-  const [sequenceNumber, setSequenceNumber] = useState(lastNoteId ? lastNoteId + 1 : 0);
+  const [sequenceNumber, setSequenceNumber] = useState(lastNoteId ? lastNoteId + 1 : 1);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   function showModal() {
