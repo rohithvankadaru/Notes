@@ -48,3 +48,9 @@
     margin-right: 15px;
     scale: 1.5;
 }
+
+@media screen and (max-width: 400px) and (max-height: 1200px) {
+    .note {
+        margin-inline: auto;
+    }
+}

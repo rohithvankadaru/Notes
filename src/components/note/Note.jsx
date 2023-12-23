@@ -35,10 +35,10 @@ const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor }) =
         <h3>{title}</h3>
         <div className='note-body'>{text}</div>
         <span className='edit-icon-wrapper icon-wrapper' index={index} ref={editSpanRef} onClick={() => editText(editSpanRef)}>
-          <Tooltip placement="bottom" title={'edit'}><MdOutlineEdit /></Tooltip>
+          <Tooltip placement="bottom" title={'edit'} color={'orange'}><MdOutlineEdit /></Tooltip>
         </span>
         <span className='delete-icon-wrapper icon-wrapper' index={index} ref={deleteSpanRef} onClick={handleDelete}>
-          <Tooltip placement="bottom" title={'delete'}><RiDeleteBin5Line /></Tooltip>
+          <Tooltip placement="bottom" title={'delete'} color={'orange'}><RiDeleteBin5Line /></Tooltip>
         </span>
         <span className='color-icon-wrapper icon-wrapper' index={index}><ColorPallet noteColor={noteColor} index={index} /></span>
       </div>

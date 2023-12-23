@@ -18,7 +18,9 @@ const Home = () => {
   const [title, setTitle] = useState('');
   const [searchText, setSearchText] = useState('');
   const [filteredList, setFilteredList] = useState(list);
-  const [isDeleteAllModalOpen, setIsDeleteAllModalOpen] = useState(false)
+  const [isDeleteAllModalOpen, setIsDeleteAllModalOpen] = useState(false);
+  const [isListView, setIsListView] = useState((localStorage.getItem('view-layout') === 'list') && true);
+  const noteContainerRef = useRef(null);
 
 
   const bulbIconRef = useRef(null);
@@ -144,10 +146,25 @@ const Home = () => {
     setIsDeleteAllModalOpen(false);
   }
 
+  function switchLayout() {
+    if (isListView) {
+      setIsListView(false);
+      localStorage.setItem('view-layout', 'grid');
+      noteContainerRef.current.className = 'note-container'
+    }
+    else {
+      setIsListView(true);
+      localStorage.setItem('view-layout', 'list');
+      noteContainerRef.current.className = 'note-container list-view'
+    }
+  }
+
 
   return (
     <>
       <NavBar
+        switchLayout={switchLayout}
+        isListView={isListView}
         searchText={searchText}
         setSearchText={setSearchText}
         deteleAllNotes={deteleAllNotes} />
@@ -158,21 +175,22 @@ const Home = () => {
           <PiLightbulbThin className='bulb-icon' />
           <div className='hero-text'> 😊Make your first Note !!</div>
         </span>
-        {
-          (list.length == 1 && list[0].length == 0) ||
-          (
-            filteredList.map((e) => (
-              <Note title={e[0]}
-                text={e[1]}
-                index={e[2]}
-                editText={editTextfun}
-                deleteFun={deleteFun}
-                bgColor={e[3]}
-                editColor={editColor} />
-            ))
-          )
-        }
-
+        <div className='note-container' ref={noteContainerRef}>
+          {
+            (list.length == 1 && list[0].length == 0) ||
+            (
+              filteredList.map((e) => (
+                <Note title={e[0]}
+                  text={e[1]}
+                  index={e[2]}
+                  editText={editTextfun}
+                  deleteFun={deleteFun}
+                  bgColor={e[3]}
+                  editColor={editColor} />
+              ))
+            )
+          }
+        </div>
         <TypingBoxModal
           text={text}
           setText={setText}

@@ -26,10 +26,27 @@
     fill: #a9a9a9;
 }
 
+.note-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.list-view {
+    margin-inline: auto;
+    flex-direction: column;
+}
+
+.list-view>div {
+    min-width: 650px;
+}
+
 
 @media screen and (max-width: 400px) and (max-height: 1200px) {
     .plus-icon {
        max-width: 80px;
+       position: relative;
+       left: 120px;
     }
     .bulb-icon {
         left: 17vw;
