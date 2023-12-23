@@ -146,7 +146,7 @@ const Home = () => {
   }
 
   function deleteAllFn() { //executes for clicking 'OK' on delete all modal
-    localStorage.removeItem('view-layout');
+    localStorage.removeItem('noteList');
     setList([[]]);
     setIsDeleteAllModalOpen(false);
   }
