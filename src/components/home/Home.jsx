@@ -20,10 +20,15 @@ const Home = () => {
   const [filteredList, setFilteredList] = useState(list);
   const [isDeleteAllModalOpen, setIsDeleteAllModalOpen] = useState(false);
   const [isListView, setIsListView] = useState((localStorage.getItem('view-layout') === 'list') && true);
+
   const noteContainerRef = useRef(null);
-
-
   const bulbIconRef = useRef(null);
+
+  useEffect(() => {
+    if (isListView) {
+      noteContainerRef.current.className = 'note-container list-view';
+    }
+  }, [])
 
   useEffect(() => {
     setFilteredList([...list].reverse());
@@ -141,7 +146,7 @@ const Home = () => {
   }
 
   function deleteAllFn() { //executes for clicking 'OK' on delete all modal
-    localStorage.removeItem('noteList');
+    localStorage.removeItem('view-layout');
     setList([[]]);
     setIsDeleteAllModalOpen(false);
   }
