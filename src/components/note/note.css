@@ -14,7 +14,34 @@
     border-radius: 5px;
     display: inline-block;
     word-spacing: 3.5px;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
+
+::-webkit-scrollbar {
+    width: 20px;
+    height: 7px;
+    cursor: auto;
+}
+
+::-webkit-scrollbar:hover {
+    cursor: pointer !important;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    cursor: pointer !important; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    cursor: pointer !important;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+    cursor: pointer !important;
+  }
 
 .note:hover {
     cursor: text;

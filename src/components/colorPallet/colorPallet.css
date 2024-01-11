@@ -3,33 +3,20 @@
 }
 
 .colors-box {
-    opacity: 0;
-    display: flex;
+    display: none;
     position: relative;
-    top: 20px;
+    top: 5px;
     box-shadow: 0 0 5px gray;
     border-radius: 5px;
     padding: 3px 7px;
     gap: 8px;
 }
 
-.color-pallet {
-    position: relative;
-    top: 25px;
-}
 
 .color-pallet:hover .color-pallet-icon {
-    scale: 1.1;
-}
-
-.color-pallet:active .color-pallet-icon {
-    scale: 1.1;
+    display: none;
 }
 
 .color-pallet:hover .colors-box {
-    opacity: 100;
-}
-
-.color-pallet:active .colors-box {
-    opacity: 100;
+    display: flex;
 }
