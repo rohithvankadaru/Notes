@@ -6,8 +6,8 @@
 .note {
     font-size: 1.05rem;
 
-    min-width: 100px;
-    min-height: 50px;
+    min-width: 250px;
+    min-height: 100px;
     max-width: 250px;
     padding: 7px 13px;
     border: 1px solid #E0E0E0;
