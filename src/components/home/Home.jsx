@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { CiSquarePlus } from "react-icons/ci";
+import note_icon from '../images/note-icon.png';
 import TypingBoxModal from '../TypingBoxModal/TypingBoxModal';
 import Note from '../note/Note';
 import './home.css'
@@ -174,7 +174,7 @@ const Home = () => {
         deteleAllNotes={deteleAllNotes} />
       <hr />
       <div className='home'>
-        <div style={{ cursor: 'pointer'}} className='d-flex flex-col align-center'><CiSquarePlus className='plus-icon' style={{ fontSize: '40px' }} onClick={showModal} /><span style={{ fontSize: '10px' }}>Add Note</span></div>
+        <div style={{ cursor: 'pointer'}} className='d-flex flex-col align-center'><img src={note_icon} className='plus-icon' style={{ width: '35px' }} onClick={showModal} /><span style={{ fontSize: '10px' }}>Add Note</span></div>
         <span className='bulb-icon-wrapper' ref={bulbIconRef}>
           <PiLightbulbThin className='bulb-icon' />
           <div className='hero-text'> 😊Make your first Note !!</div>
