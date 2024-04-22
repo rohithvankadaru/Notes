@@ -7,7 +7,7 @@
     font-size: 1.05rem;
 
     min-width: 250px;
-    min-height: 100px;
+    min-height: 60px;
     max-width: 250px;
     padding: 7px 13px;
     border: 1px solid #E0E0E0;
@@ -16,6 +16,13 @@
     word-spacing: 3.5px;
     overflow-x: auto;
     overflow-y: hidden;
+}
+.note:hover .icon-container {
+    display: block;
+}
+
+.icon-container {
+    display: none;
 }
 
 ::-webkit-scrollbar {

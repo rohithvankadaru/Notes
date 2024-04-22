@@ -1,6 +1,9 @@
 .nav-bar {
     margin-inline: 30px;
     padding-block: 20px;
+    position: sticky;
+    top: 0px;
+    background-color: white;
 }
 
 .nav-bar>.icon {

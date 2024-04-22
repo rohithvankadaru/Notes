@@ -69,7 +69,6 @@ const Home = () => {
 
   function saveText() {
     if (!(text || title)) {
-      alert('Empty note cannot be recorded');
       return;
     }
 
@@ -175,7 +174,7 @@ const Home = () => {
         deteleAllNotes={deteleAllNotes} />
       <hr />
       <div className='home'>
-        <span style={{ cursor: 'pointer' }}><CiSquarePlus className='plus-icon' style={{ fontSize: '200px' }} onClick={showModal} /></span>
+        <div style={{ cursor: 'pointer'}} className='d-flex flex-col align-center'><CiSquarePlus className='plus-icon' style={{ fontSize: '40px' }} onClick={showModal} /><span style={{ fontSize: '10px' }}>Add Note</span></div>
         <span className='bulb-icon-wrapper' ref={bulbIconRef}>
           <PiLightbulbThin className='bulb-icon' />
           <div className='hero-text'> 😊Make your first Note !!</div>
