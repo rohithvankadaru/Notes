@@ -68,17 +68,26 @@ const Home = () => {
   };
 
   function saveText() {
-    if (!(text || title)) {
-      return;
-    }
+    // if (!(text || title)) return;
 
     const tempList = JSON.parse(localStorage.getItem('noteList')) || [];
-    tempList.push([title, text, sequenceNumber, 'transparent']);
+    const newNote = [title, text, sequenceNumber, 'transparent'];
+    tempList.push(newNote);
     setSequenceNumber(sequenceNumber + 1);
     localStorage.setItem('noteList', JSON.stringify(tempList));
     setText('');
     setTitle('');
     setList(tempList);
+
+    if (!tempList[tempList.length - 1][1]) {
+      setTimeout(() => {
+        // setSequenceNumber(sequenceNumber - 1);
+        const tempList1 = JSON.parse(localStorage.getItem('noteList')) || [];
+        tempList1.pop();
+        localStorage.setItem('noteList', JSON.stringify(tempList1));
+        setList(tempList1);
+      }, 1000)
+    }
   }
 
   const [arrayIndex, setArrayIndex] = useState(0);
