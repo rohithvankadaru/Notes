@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import './note.css'
 import { MdOutlineEdit } from "react-icons/md"
 import { RiDeleteBin5Line } from "react-icons/ri"
-import { Modal, Tooltip } from 'antd';
+import { Modal } from 'antd';
 import { BsExclamationSquareFill } from "react-icons/bs";
 import ColorPallet from '../colorPallet/ColorPallet';
 
