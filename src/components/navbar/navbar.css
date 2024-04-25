@@ -1,9 +1,15 @@
-.nav-bar {
-    margin-inline: 30px;
-    padding-block: 20px;
+.nav-bar-wrapper {
     position: sticky;
     top: 0px;
     background-color: white;
+}
+
+.nav-bar {
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    padding-inline: 30px;
+    padding-block: 20px;
 }
 
 .nav-bar>.icon {

@@ -181,7 +181,6 @@ const Home = () => {
         searchText={searchText}
         setSearchText={setSearchText}
         deteleAllNotes={deteleAllNotes} />
-      <hr />
       <div className='home'>
         <div style={{ cursor: 'pointer'}} className='d-flex flex-col align-center'><img src={note_icon} className='plus-icon' style={{ width: '35px' }} onClick={showModal} /><span style={{ fontSize: '10px' }}>Add Note</span></div>
         <span className='bulb-icon-wrapper' ref={bulbIconRef}>
