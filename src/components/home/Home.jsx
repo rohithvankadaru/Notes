@@ -79,14 +79,14 @@ const Home = () => {
     setTitle('');
     setList(tempList);
 
-    if (!tempList[tempList.length - 1][1]) {
+    if (!(tempList[tempList.length - 1][1] || tempList[tempList.length - 1][0])) {
+      const tempList1 = JSON.parse(localStorage.getItem('noteList')) || [];
+      tempList1.pop();
+      localStorage.setItem('noteList', JSON.stringify(tempList1));
       setTimeout(() => {
         // setSequenceNumber(sequenceNumber - 1);
-        const tempList1 = JSON.parse(localStorage.getItem('noteList')) || [];
-        tempList1.pop();
-        localStorage.setItem('noteList', JSON.stringify(tempList1));
         setList(tempList1);
-      }, 1000)
+      }, 800)
     }
   }
 
