@@ -183,7 +183,7 @@ const Home = () => {
         deteleAllNotes={deteleAllNotes} />
         <br />
       <div className='home'>
-        <div style={{ cursor: 'pointer', position: 'fixed', right: '50px', bottom: '50px', backgroundColor: 'white'}} className='d-flex flex-col align-center'><img src={note_icon} className='plus-icon' style={{ width: '60px' }} onClick={showModal} /><span style={{ fontSize: '12px' }}>Add Note</span></div>
+        <div style={{ cursor: 'pointer', position: 'fixed', right: '50px', bottom: '50px'}} className='add-note d-flex flex-col align-center'><img src={note_icon} style={{ width: '60px' }} onClick={showModal} /><span style={{ fontSize: '12px' }}>Add Note</span></div>
         <span className='bulb-icon-wrapper' ref={bulbIconRef}>
           <PiLightbulbThin className='bulb-icon' />
           <div className='hero-text'> 😊Make your first Note !!</div>

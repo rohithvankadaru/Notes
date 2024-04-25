@@ -42,13 +42,20 @@
     min-width: 650px;
 }
 
+.add-note:hover {
+    animation: shake 1s;
+}
+
+@keyframes shake {
+    25% {
+        transform: rotate(-65deg);
+    }
+    75% {
+        transform: rotate(65deg);
+    }
+}
 
 @media screen and (max-width: 400px) and (max-height: 1200px) {
-    .plus-icon {
-       max-width: 80px;
-       position: relative;
-       left: 120px;
-    }
     .bulb-icon {
         left: 17vw;
         scale: 8;
