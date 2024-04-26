@@ -8,6 +8,7 @@ import EditModal from '../editModal/EditModal';
 import { PiLightbulbThin } from "react-icons/pi";
 import { Modal } from 'antd';
 import { BsExclamationSquareFill } from 'react-icons/bs';
+import { toast } from 'sonner';
 
 let localList = JSON.parse(localStorage.getItem('noteList'));
 let lastNoteId = (localList && localList.length > 0) ?  localList[localList.length - 1][2] : '';
@@ -31,7 +32,6 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
-    console.log(list)
     setFilteredList([...list].reverse());
     if (list.length > 0) bulbIconRef.current.style.display = 'none'
     else bulbIconRef.current.style.display = 'block'
@@ -85,9 +85,11 @@ const Home = () => {
       localStorage.setItem('noteList', JSON.stringify(tempList1));
       setTimeout(() => {
         // setSequenceNumber(sequenceNumber - 1);
+        toast.warning('Empty note removed!!', {duration: 1500});
         setList(tempList1);
       }, 800)
     }
+    else toast.success('note added!!', {duration: '1500'});
   }
 
   const [arrayIndex, setArrayIndex] = useState(0);
@@ -212,7 +214,6 @@ const Home = () => {
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
           showModal={showModal}
-          handleOk={handleOk}
           handleCancel={handleCancel}
         />
         <EditModal isEditTabOpen={isEditTabOpen} saveEdit={saveEdit} setText={setText} text={text} title={title} setTitle={setTitle} />
