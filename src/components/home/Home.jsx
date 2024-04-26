@@ -9,11 +9,11 @@ import { PiLightbulbThin } from "react-icons/pi";
 import { Modal } from 'antd';
 import { BsExclamationSquareFill } from 'react-icons/bs';
 
-let localList = JSON.parse(localStorage.getItem('noteList')) || [[]];
-let lastNoteId = localList[localList.length - 1][2];
+let localList = JSON.parse(localStorage.getItem('noteList'));
+let lastNoteId = (localList && localList.length > 0) ?  localList[localList.length - 1][2] : '';
 const Home = () => {
 
-  const [list, setList] = useState(JSON.parse(localStorage.getItem('noteList')) || [[]]);
+  const [list, setList] = useState(JSON.parse(localStorage.getItem('noteList')) || []);
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
   const [searchText, setSearchText] = useState('');
@@ -31,12 +31,13 @@ const Home = () => {
   }, [])
 
   useEffect(() => {
+    console.log(list)
     setFilteredList([...list].reverse());
-    if (list[0].length > 0) bulbIconRef.current.style.display = 'none'
+    if (list.length > 0) bulbIconRef.current.style.display = 'none'
     else bulbIconRef.current.style.display = 'block'
   }, [list]);
   useEffect(() => {
-    if (!(list.length == 1 && list[0].length == 0)) {
+    if (!(list.length == 0)) {
       let arr = list.filter(ele => {
         return (
           (ele[0].toLocaleLowerCase()).includes(searchText.toLocaleLowerCase())
@@ -68,7 +69,6 @@ const Home = () => {
   };
 
   function saveText() {
-    // if (!(text || title)) return;
 
     const tempList = JSON.parse(localStorage.getItem('noteList')) || [];
     const newNote = [title, text, sequenceNumber, 'transparent'];
@@ -142,8 +142,8 @@ const Home = () => {
     for (let i = 0; i < list.length; i++) {
       if (list[i][2] == fileId) {
         tempArr.splice(i, 1);
-        setList(tempArr.length == 0 ? [[]] : tempArr);
-        localStorage.setItem('noteList', JSON.stringify(tempArr.length == 0 ? '' : tempArr));
+        setList(tempArr);
+        localStorage.setItem('noteList', JSON.stringify(tempArr));
         break;
       }
     }
