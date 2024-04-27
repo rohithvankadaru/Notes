@@ -78,6 +78,7 @@ const Home = () => {
     setText('');
     setTitle('');
     setList(tempList);
+    toast.success('note sticked🩹🩹', {duration: '1500'});
 
     if (!(tempList[tempList.length - 1][1] || tempList[tempList.length - 1][0])) {
       const tempList1 = JSON.parse(localStorage.getItem('noteList')) || [];
@@ -85,11 +86,10 @@ const Home = () => {
       localStorage.setItem('noteList', JSON.stringify(tempList1));
       setTimeout(() => {
         // setSequenceNumber(sequenceNumber - 1);
-        toast.warning('Empty note removed!!', {duration: 1500});
+        toast.warning('Empty note discarded!!', {duration: 1500});
         setList(tempList1);
       }, 800)
     }
-    else toast.success('note added!!', {duration: '1500'});
   }
 
   const [arrayIndex, setArrayIndex] = useState(0);
@@ -149,6 +149,7 @@ const Home = () => {
         break;
       }
     }
+    toast.warning('note deleted!!', {duration: '1500'});
   }
 
   function deteleAllNotes() {
@@ -157,7 +158,7 @@ const Home = () => {
 
   function deleteAllFn() { //executes for clicking 'OK' on delete all modal
     localStorage.removeItem('noteList');
-    setList([[]]);
+    setList([]);
     setIsDeleteAllModalOpen(false);
   }
 
