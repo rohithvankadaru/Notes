@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './note.css'
 import { MdOutlineEdit } from "react-icons/md"
 import { RiDeleteBin5Line } from "react-icons/ri"
@@ -6,11 +6,20 @@ import { Modal } from 'antd';
 import { BsExclamationSquareFill } from "react-icons/bs";
 import ColorPallet from '../colorPallet/ColorPallet';
 
-const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor }) => {
+const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor, highlightText }) => {
 
   const editSpanRef = useRef(null);
   const deleteSpanRef = useRef(null);
+  const textBoxRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
+
+  
+  useEffect(() => {
+    if(text.toUpperCase().includes(highlightText.toUpperCase())) {
+      text = text.split(highlightText).join(`<mark>${highlightText}</mark>`);
+    }
+    textBoxRef.current.innerHTML = text;
+  })
 
   function handleDelete() {
     setShowModal(true);
@@ -33,7 +42,7 @@ const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor }) =
     <>
       <div className='note' style={{ backgroundColor: bgColor }}>
         <h3>{title}</h3>
-        <div className='note-body'>{text}</div>
+        <div className='note-body' ref={textBoxRef}></div>
         <div className='icon-container'>
           <span className='edit-icon-wrapper icon-wrapper' index={index} ref={editSpanRef} onClick={() => editText(editSpanRef)}>
             <MdOutlineEdit />

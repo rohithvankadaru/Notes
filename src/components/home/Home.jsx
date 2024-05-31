@@ -202,7 +202,8 @@ const Home = () => {
                   editText={editTextfun}
                   deleteFun={deleteFun}
                   bgColor={e[3]}
-                  editColor={editColor} />
+                  editColor={editColor}
+                  highlightText={searchText} />
               ))
             )
           }
