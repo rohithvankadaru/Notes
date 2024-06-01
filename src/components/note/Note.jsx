@@ -15,11 +15,34 @@ const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor, hig
 
   
   useEffect(() => {
-    if(text.toUpperCase().includes(highlightText.toUpperCase())) {
-      text = text.split(highlightText).join(`<mark>${highlightText}</mark>`);
+    if(highlightText) {
+      const ranges = findIndeces(text.toUpperCase(), highlightText.toUpperCase());
+      text = addHAtRanges(text, ranges);
     }
     textBoxRef.current.innerHTML = text;
-  })
+  }, [highlightText]);
+
+  function addHAtRanges(str, ranges) {
+    let arr = str.split('');
+
+    for (let range of ranges) {
+        let [start, end] = range;
+        arr[start] = '<mark>' + arr[start];
+        arr[end] += '</mark>';
+    }
+    return arr.join('');
+}
+
+  function findIndeces(text, subText) {
+    let arr = [];
+    const m = text.length;
+    const n = subText.length;
+    for(let i = 0; i < m; i++) {
+      let num = text.substring(i, i+n).indexOf(subText);
+      if(num != -1) arr.push([i + num, i + num + n-1]);
+    }
+    return arr;
+  }
 
   function handleDelete() {
     setShowModal(true);
