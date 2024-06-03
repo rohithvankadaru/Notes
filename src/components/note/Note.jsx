@@ -11,6 +11,7 @@ const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor, hig
   const editSpanRef = useRef(null);
   const deleteSpanRef = useRef(null);
   const textBoxRef = useRef(null);
+  const titleRef = useRef(null);
   const [showModal, setShowModal] = useState(false);
 
   
@@ -18,9 +19,13 @@ const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor, hig
     if(highlightText) {
       const ranges = findIndeces(text.toUpperCase(), highlightText.toUpperCase());
       text = addHAtRanges(text, ranges);
+
+      const titleRanges = findIndeces(title.toUpperCase(), highlightText.toUpperCase());
+      title = addHAtRanges(title, titleRanges);
     }
     textBoxRef.current.innerHTML = text;
-  }, [highlightText]);
+    titleRef.current.innerHTML = title;
+  });
 
   function addHAtRanges(str, ranges) {
     let arr = str.split('');
@@ -64,7 +69,7 @@ const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor, hig
   return (
     <>
       <div className='note' style={{ backgroundColor: bgColor }}>
-        <h3>{title}</h3>
+        <h3 ref={titleRef}></h3>
         <div className='note-body' ref={textBoxRef}></div>
         <div className='icon-container'>
           <span className='edit-icon-wrapper icon-wrapper' index={index} ref={editSpanRef} onClick={() => editText(editSpanRef)}>
