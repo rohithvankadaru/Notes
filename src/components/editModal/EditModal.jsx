@@ -11,6 +11,7 @@ const EditModal = ({ isEditTabOpen, saveEdit, text, setText, title, setTitle }) 
              onChange={e => setTitle(e.target.value)}
             ></Input><br /><br />
             <TextArea
+                bordered={false}
                 placeholder='note content'
                 value={text}
                 style={{ height: '300px', Width: '400px' }}
