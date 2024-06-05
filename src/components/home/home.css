@@ -46,7 +46,22 @@
 }
 
 .add-note:hover {
-    animation: shake 1s;
+    animation: shik 1s;
+}
+
+@keyframes shik {
+    25% {
+        transform: translateY(-30px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 @keyframes shake {
