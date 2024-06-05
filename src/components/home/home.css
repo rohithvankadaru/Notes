@@ -5,6 +5,9 @@
     gap: 40px;
     margin: 20px;
 }
+.add-note>span {
+    margin-right: 10px;
+}
 
 .bulb-icon-wrapper {
     position: relative;
@@ -48,10 +51,10 @@
 
 @keyframes shake {
     25% {
-        transform: rotate(-65deg);
+        transform: rotate(-75deg);
     }
     75% {
-        transform: rotate(65deg);
+        transform: rotate(75deg);
     }
 }
 
