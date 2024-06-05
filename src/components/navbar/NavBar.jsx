@@ -10,8 +10,8 @@ const NavBar = ({ searchText, setSearchText, deteleAllNotes, isListView, switchL
         <div className='nav-bar-wrapper'>
             <div className='d-flex flex-row nav-bar'>
                 <div className='d-flex icon'>
-                    <img className="gb_Hc gb_Hd" src="https://www.gstatic.com/images/branding/product/1x/keep_2020q4_48dp.png"
-                    alt="" aria-hidden="true" role="presentation" style={{ width: '40px', height: '40px' }}></img>
+                    <img className="gb_Hc gb_Hd" src="https://cdn-icons-png.freepik.com/256/13454/13454799.png?semt=ais_hybrid"
+                    alt="" aria-hidden="true" role="presentation"></img>
                     <h1 style={{fontFamily: "Arial", fontSize: '1.85rem'}}>Sticky Note</h1>
                 </div>
                 <div className='d-flex search-wrapper'>
