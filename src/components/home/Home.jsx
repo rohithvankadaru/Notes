@@ -186,7 +186,7 @@ const Home = () => {
         deteleAllNotes={deteleAllNotes} />
         <br />
       <div className='home'>
-        <div style={{ cursor: 'pointer', position: 'fixed', right: '50px', bottom: '50px'}} className='add-note d-flex flex-col align-center justify-center'><img src='https://cdn3.iconfinder.com/data/icons/documents-and-files-2/512/Add_Notes-512.png' style={{ width: '70px' }} onClick={showModal} /><span style={{ fontSize: '12px' }}>Add Note</span></div>
+        <div style={{ cursor: 'pointer', position: 'fixed', right: '50px', bottom: '50px'}} className='add-note d-flex flex-col align-center justify-center'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOVWamrGD9UTZQVqYlIom5Q4FCK_obkgzjEg&s' style={{ width: '70px' }} onClick={showModal} /><span style={{ fontSize: '12px' }}>Add Note</span></div>
         <span className='bulb-icon-wrapper' ref={bulbIconRef}>
           <PiLightbulbThin className='bulb-icon' />
           <div className='hero-text'> 😊Make your first Note !!</div>
