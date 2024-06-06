@@ -4,7 +4,7 @@ import React from 'react'
 
 const EditModal = ({ isEditTabOpen, saveEdit, text, setText, title, setTitle }) => {
     return (
-        <Modal title='Edit Note' open={isEditTabOpen} onCancel={saveEdit} footer=''>
+        <Modal maskClosable={false} title='Edit Note' open={isEditTabOpen} onCancel={saveEdit} footer=''>
             <Input
              placeholder='Title'
              value={title}

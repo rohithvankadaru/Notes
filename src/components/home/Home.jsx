@@ -220,7 +220,7 @@ const Home = () => {
         />
         <EditModal isEditTabOpen={isEditTabOpen} saveEdit={saveEdit} setText={setText} text={text} title={title} setTitle={setTitle} />
 
-        <Modal open={isDeleteAllModalOpen} onOk={deleteAllFn} onCancel={() => setIsDeleteAllModalOpen(false)} okType='danger'>
+        <Modal maskClosable={false} open={isDeleteAllModalOpen} onOk={deleteAllFn} onCancel={() => setIsDeleteAllModalOpen(false)} okType='danger'>
           <label style={{ fontSize: '1.1rem', fontWeight: '600' }}><BsExclamationSquareFill className='exclamation-icon' />This will delete all Notes</label>
         </Modal>
       </div>

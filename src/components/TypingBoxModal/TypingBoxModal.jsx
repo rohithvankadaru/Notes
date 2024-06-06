@@ -5,7 +5,7 @@ import TextArea from 'antd/es/input/TextArea';
 const TypingBoxModal = ({ text, setText, title, setTitle, isModalOpen, handleOk, handleCancel }) => {
 
   return (
-    <Modal title="Add Note" open={isModalOpen} onCancel={handleCancel} footer='😊😊'>
+    <Modal maskClosable={false} title="Add Note" open={isModalOpen} onCancel={handleCancel} footer='😊😊'>
       <Input placeholder='Title' value={title} onChange={e => setTitle(e.target.value)} /><br /><br />
       <TextArea
         bordered={false}

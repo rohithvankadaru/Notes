@@ -81,7 +81,7 @@ const Note = ({ title, text, index, editText, deleteFun, bgColor, editColor, hig
           <span className='color-icon-wrapper icon-wrapper' index={index}><ColorPallet noteColor={noteColor} index={index} /></span>
           </div>
       </div>
-      <Modal open={showModal} onOk={handleOk} onCancel={handleCancel} okType='danger' okText='Yes' cancelText='No'>
+      <Modal maskClosable={false} open={showModal} onOk={handleOk} onCancel={handleCancel} okType='danger' okText='Yes' cancelText='No'>
         <label style={{ fontSize: '1.1rem', fontWeight: '600' }}><BsExclamationSquareFill className='exclamation-icon' />Are you sure delete this Note</label>
       </Modal>
     </>
