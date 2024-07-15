@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import note_icon from '../images/note-icon.png';
+import note_icon from '../images/addNote.png';
 import TypingBoxModal from '../TypingBoxModal/TypingBoxModal';
 import Note from '../note/Note';
 import './home.css'
@@ -186,7 +186,7 @@ const Home = () => {
         deteleAllNotes={deteleAllNotes} />
         <br />
       <div className='home'>
-        <div style={{ cursor: 'pointer', position: 'fixed', right: '50px', bottom: '50px'}} className='add-note d-flex flex-col align-center justify-center'><img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOVWamrGD9UTZQVqYlIom5Q4FCK_obkgzjEg&s' style={{ width: '70px' }} onClick={showModal} /><span style={{ fontSize: '12px' }}>Add Note</span></div>
+        <div style={{ cursor: 'pointer', position: 'fixed', right: '50px', bottom: '50px'}} className='add-note d-flex flex-col align-center justify-center'><img src={note_icon} style={{ width: '70px' }} onClick={showModal} /><span style={{ fontSize: '12px' }}>Add Note</span></div>
         <span className='bulb-icon-wrapper' ref={bulbIconRef}>
           <PiLightbulbThin className='bulb-icon' />
           <div className='hero-text'> 😊Make your first Note !!</div>
