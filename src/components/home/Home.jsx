@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import note_icon from '../images/note-icon.png';
 import TypingBoxModal from '../TypingBoxModal/TypingBoxModal';
 import Note from '../note/Note';
 import './home.css'
@@ -78,7 +77,6 @@ const Home = () => {
     setText('');
     setTitle('');
     setList(tempList);
-    toast.success('note sticked🩹🩹', {duration: '1500'});
 
     if (!(tempList[tempList.length - 1][1] || tempList[tempList.length - 1][0])) {
       const tempList1 = JSON.parse(localStorage.getItem('noteList')) || [];
@@ -149,7 +147,6 @@ const Home = () => {
         break;
       }
     }
-    toast.warning('note deleted!!', {duration: '1500'});
   }
 
   function deteleAllNotes() {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import './navbar.css'
 import { CiGrid2H, CiSearch } from 'react-icons/ci'
 import { IoGridOutline } from "react-icons/io5";

@@ -37,7 +37,7 @@
 }
 
 .list-view {
-    margin-inline: auto;
+    margin-left: 1px;
     flex-direction: column;
 }
 
@@ -64,14 +64,6 @@
     }
 }
 
-@keyframes shake {
-    25% {
-        transform: rotate(-75deg);
-    }
-    75% {
-        transform: rotate(75deg);
-    }
-}
 
 @media screen and (max-width: 400px) and (max-height: 1200px) {
     .bulb-icon {
