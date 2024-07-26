@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import TypingBoxModal from '../TypingBoxModal/TypingBoxModal';
 import Note from '../note/Note';
 import './home.css'
@@ -163,7 +163,7 @@ const Home = () => {
     if (isListView) {
       setIsListView(false);
       localStorage.setItem('view-layout', 'grid');
-      noteContainerRef.current.className = 'note-container'
+      noteContainerRef.current.className = 'note-container flex-wrap'
     }
     else {
       setIsListView(true);
@@ -183,6 +183,7 @@ const Home = () => {
         deteleAllNotes={deteleAllNotes} />
         <br />
       <div className='home'>
+      <div>
         <div style={{ cursor: 'pointer', position: 'fixed', right: '50px', bottom: '50px'}} className='add-note d-flex flex-col align-center justify-center'><img src='https://cdn3.iconfinder.com/data/icons/documents-and-files-2/512/Add_Notes-512.png' style={{ width: '70px' }} onClick={showModal} /><span style={{ fontSize: '12px' }}>Add Note</span></div>
         <span className='bulb-icon-wrapper' ref={bulbIconRef}>
           <PiLightbulbThin className='bulb-icon' />
@@ -220,6 +221,8 @@ const Home = () => {
         <Modal open={isDeleteAllModalOpen} onOk={deleteAllFn} onCancel={() => setIsDeleteAllModalOpen(false)} okType='danger'>
           <label style={{ fontSize: '1.1rem', fontWeight: '600' }}><BsExclamationSquareFill className='exclamation-icon' />This will delete all Notes</label>
         </Modal>
+        </div>
+        <div>djkwudhjdj</div>
       </div>
     </>
   )
