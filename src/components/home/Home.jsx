@@ -30,7 +30,6 @@ const Home = () => {
       noteContainerRef.current.className = 'note-container list-view';
     }
   }, [])
-  console.log(list)
 
   useEffect(() => {
     setFilteredList([...list].reverse());
