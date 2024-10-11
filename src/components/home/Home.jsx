@@ -18,7 +18,7 @@ const Home = () => {
   const [text, setText] = useState('');
   const [title, setTitle] = useState('');
   const [searchText, setSearchText] = useState('');
-  const [filteredList, setFilteredList] = useState(list);
+  const [filteredList, setFilteredList] = useState([...list].reverse());
   const [isDeleteAllModalOpen, setIsDeleteAllModalOpen] = useState(false);
   const [isListView, setIsListView] = useState((localStorage.getItem('view-layout') === 'list') && true);
 
@@ -30,6 +30,7 @@ const Home = () => {
       noteContainerRef.current.className = 'note-container list-view';
     }
   }, [])
+  console.log(list)
 
   useEffect(() => {
     setFilteredList([...list].reverse());
@@ -58,10 +59,6 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   function showModal() {
     setIsModalOpen(true);
-  };
-  function handleOk() {
-    saveText();
-    setIsModalOpen(false);
   };
   function handleCancel() {
     saveText();
@@ -191,7 +188,7 @@ const Home = () => {
         </span>
         <div className='note-container' ref={noteContainerRef}>
           {
-            (list.length == 1 && list[0].length == 0) ||
+            (filteredList.length > 0) &&
             (
               filteredList.map((e) => (
                 <Note title={e[0]}
