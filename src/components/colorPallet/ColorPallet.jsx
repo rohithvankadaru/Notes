@@ -9,39 +9,6 @@ const ColorPallet = ({ noteColor, index }) => {
     const spanRefs = items.map(() => useRef(null));
     const noColorIconRef = useRef(null);
 
-    const items = [
-        {
-            label: (
-                <FaCircle fill='#faafa8' className='color-icon' />
-            )
-        },
-        {
-            label: (
-                <FaCircle fill='#f39f76' className='color-icon' />
-            )
-        },
-        {
-            label: (
-                <FaCircle fill='#fff8b8' className='color-icon' />
-            )
-        },
-        {
-            label: (
-                <FaCircle fill='#d3bfdb' className='color-icon' />
-            )
-        },
-        {
-            label: (
-                <FaCircle fill='#efeff1' className='color-icon' />
-            )
-        },
-        {
-            label: (
-                <FaCircle fill='#e2f6d3' className='color-icon' />
-            )
-        },
-    ];
-
     return (
         <div className='color-pallet'>
             <IoColorPaletteOutline className='color-pallet-icon' />
@@ -60,4 +27,37 @@ const ColorPallet = ({ noteColor, index }) => {
         </div>
     )
 };
+
+const items = [
+    {
+        label: (
+            <FaCircle fill='#faafa8' className='color-icon' />
+        )
+    },
+    {
+        label: (
+            <FaCircle fill='#f39f76' className='color-icon' />
+        )
+    },
+    {
+        label: (
+            <FaCircle fill='#fff8b8' className='color-icon' />
+        )
+    },
+    {
+        label: (
+            <FaCircle fill='#d3bfdb' className='color-icon' />
+        )
+    },
+    {
+        label: (
+            <FaCircle fill='#efeff1' className='color-icon' />
+        )
+    },
+    {
+        label: (
+            <FaCircle fill='#e2f6d3' className='color-icon' />
+        )
+    },
+];
 export default ColorPallet;
