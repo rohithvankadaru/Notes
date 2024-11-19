@@ -47,7 +47,7 @@ const Home = () => {
       });
       setFilteredList(arr.reverse());
     }
-  }, [searchText]);
+  }, [searchText, list]);
 
   const [isEditTabOpen, setIsEditTabOpen] = useState(false);
 
