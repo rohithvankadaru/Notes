@@ -20,8 +20,8 @@
 
 .dropDownList>.listButton {
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding-left: 8px;
     background-color: white;
     width: 130px;
     height: 60px;
