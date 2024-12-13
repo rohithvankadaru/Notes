@@ -20,7 +20,11 @@ const NavBar = ({ searchText, setSearchText, deteleAllNotes, isListView, switchL
                     <input ref={searchBarRef} placeholder='search...' value={searchText} onChange={e => setSearchText(e.target.value)} />
                 </div>
 
-                <DropDown deteleAllNotes={deteleAllNotes} isListView={isListView} switchLayout={switchLayout}/>
+                {/* <DropDown deteleAllNotes={deteleAllNotes} isListView={isListView} switchLayout={switchLayout}/> */}
+                <DropDown buttonsList={[
+                    {name: 'Delete All', onClickFun: () => deteleAllNotes},
+                    {name: 'Change View', onClickFun: switchLayout}
+                ]}/>
             </div>
             <hr />
         </div>

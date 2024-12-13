@@ -40,7 +40,7 @@
     border: none;
     outline: none;
 
-    width: 650px;
+    width: 550px;
     height: 20px;
 
     padding: 15px 25px;
@@ -49,39 +49,6 @@
     font-size: 1rem;
 }
 
-
-.optionsBurger:hover {
-    cursor: pointer;
-}
-
-.changeViewBtn:hover {
-    cursor: pointer;
-}
-
-.dropDown-list {
-    position: absolute;
-    right: 60px;
-}
-
-.deleteAll-btn {
-    background-color: white;
-    box-shadow: 0 0 3px;
-    /* outline: none; */
-}
-
-.deleteAll-btn>img {
-    width: 15px;
-}
-
-.dropDown-item {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-}
-
-.view-layout-icon {
-    scale: 1.5;
-}
 
 @media screen and (max-width: 400px) and (max-height: 1200px) {
     .view-layout-icon {
