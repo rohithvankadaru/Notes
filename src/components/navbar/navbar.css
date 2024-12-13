@@ -40,7 +40,7 @@
     border: none;
     outline: none;
 
-    width: 650px;
+    width: 550px;
     height: 20px;
 
     padding: 15px 25px;
@@ -49,21 +49,16 @@
     font-size: 1rem;
 }
 
-.view-layout-icon {
-    cursor: pointer;
-    scale: 2.8;
-    position: relative;
-    right: 40px;
-    top: 15px;
-}
 
 @media screen and (max-width: 400px) and (max-height: 1200px) {
     .view-layout-icon {
         display: none;
     }
+
     .nav-bar>.icon>h1 {
         display: none;
     }
+
     .nav-bar>.icon>img {
         position: relative;
         left: -25px;
@@ -72,13 +67,16 @@
     .nav-bar input {
         max-width: 157px;
     }
+
     .nav-bar .search-wrapper {
         position: relative;
         left: -12px;
     }
+
     .search-wrapper input {
         padding: 6px 13px;
     }
+
     .clear-btn {
         position: relative;
         left: -8px;
