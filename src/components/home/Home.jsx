@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import note_icon from '../images/addNote.png';
+import bulbOn from '../images/bulb-on.png';
+import bulbOff from '../images/bulb-off.png';
 import TypingBoxModal from '../TypingBoxModal/TypingBoxModal';
 import Note from '../note/Note';
 import './home.css'
@@ -21,6 +23,7 @@ const Home = () => {
   const [filteredList, setFilteredList] = useState([...list].reverse());
   const [isDeleteAllModalOpen, setIsDeleteAllModalOpen] = useState(false);
   const [isListView, setIsListView] = useState((localStorage.getItem('view-layout') === 'list') && true);
+  const [bulb, setBulb] = useState(bulbOff);
 
   const noteContainerRef = useRef(null);
   const bulbIconRef = useRef(null);
@@ -34,7 +37,7 @@ const Home = () => {
   useEffect(() => {
     setFilteredList([...list].reverse());
     if (list.length > 0) bulbIconRef.current.style.display = 'none'
-    else bulbIconRef.current.style.display = 'block'
+    else bulbIconRef.current.style.display = 'flex'
   }, [list]);
   useEffect(() => {
     if (!(list.length == 0)) {
@@ -182,8 +185,10 @@ const Home = () => {
       <div className='home'>
         <div style={{ cursor: 'pointer', position: 'fixed', right: '50px', bottom: '50px'}} className='add-note d-flex flex-col align-center justify-center'><img src={note_icon} style={{ width: '70px' }} onClick={showModal} /><span style={{ fontSize: '12px' }}>Add Note</span></div>
         <span className='bulb-icon-wrapper' ref={bulbIconRef}>
-          <PiLightbulbThin className='bulb-icon' />
-          <div className='hero-text'> 😊Make your first Note !!</div>
+          <a className='bulb-icon' title="click!..">
+            <img src={bulb} alt="bulb img" onClick={() => setBulb(bulb == bulbOn && bulbOff || bulbOn)} />
+          </a>
+          <div className='hero-text'> Make your first Note !!</div>
         </span>
         <div className='note-container' ref={noteContainerRef}>
           {

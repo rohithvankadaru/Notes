@@ -19,11 +19,9 @@ const NavBar = ({ searchText, setSearchText, deteleAllNotes, isListView, switchL
                     <CiSearch className='searchIcon' onClick={() => searchBarRef.current.focus()} />
                     <input ref={searchBarRef} placeholder='search...' value={searchText} onChange={e => setSearchText(e.target.value)} />
                 </div>
-
-                {/* <DropDown deteleAllNotes={deteleAllNotes} isListView={isListView} switchLayout={switchLayout}/> */}
                 <DropDown buttonsList={[
-                    {name: 'Delete All', onClickFun: () => deteleAllNotes},
-                    {name: 'Change View', onClickFun: switchLayout}
+                    {name: 'Change View', onClickFun: switchLayout},
+                    {name: 'Delete All', onClickFun: deteleAllNotes}
                 ]}/>
             </div>
             <hr />

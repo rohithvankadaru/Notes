@@ -28,4 +28,5 @@
 }
 .dropDownList>.listButton:hover {
     background-color: whitesmoke;
+    cursor: pointer;
 }

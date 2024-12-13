@@ -10,23 +10,16 @@
 }
 
 .bulb-icon-wrapper {
-    position: relative;
-    left: 30vw;
-    top: 20vh;
-}
-
-.hero-text {
-    position: absolute;
-    top: 125px;
-    left: -87px;
-    width: 190px;
-    color: gray;
-    font-size: 1.1rem;
+    margin-inline: auto;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .bulb-icon {
-    scale: 14;
-    fill: #a9a9a9;
+    height: 245px;
 }
 
 .note-container {
@@ -37,7 +30,6 @@
 }
 
 .list-view {
-    margin-inline: auto;
     flex-direction: column;
 }
 
