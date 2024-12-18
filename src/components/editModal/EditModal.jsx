@@ -4,7 +4,7 @@ import React from 'react'
 
 const EditModal = ({ isEditTabOpen, saveEdit, text, setText, title, setTitle }) => {
     return (
-        <Modal maskClosable={false} title='Edit Note' open={isEditTabOpen} onCancel={saveEdit} footer=''>
+        <Modal width={'100vw'} maskClosable={false} title='Edit Note' open={isEditTabOpen} onCancel={saveEdit} footer=''>
             <Input
              placeholder='Title'
              value={title}
@@ -14,7 +14,7 @@ const EditModal = ({ isEditTabOpen, saveEdit, text, setText, title, setTitle }) 
                 bordered={false}
                 placeholder='note content'
                 value={text}
-                style={{ height: '300px', Width: '400px' }}
+                style={{ height: '371px', Width: '400px' }}
                 onChange={(e) => setText(e.target.value)} />
         </Modal>
     )
